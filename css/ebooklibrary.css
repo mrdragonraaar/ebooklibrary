@@ -1,0 +1,769 @@
+/**
+ * ebooklibrary.css
+ * 
+ * (c)2013 mrdragonraaar.com
+ */
+
+/**
+ * Main Styles
+ */
+body
+{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: rgb(24, 24, 24);
+	line-height: 18px;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Georgia, serif;
+	font-size: 110%;
+	font-weight: 400;
+	color: rgb(56, 33, 16);
+	padding: 0;
+	margin: 0;
+}
+
+h1
+{
+	font-size: 180%;
+	line-height: 1.1;
+}
+
+h2
+{
+	font-size: 16px;
+}
+
+h3, h4, h5, h6
+{
+	color: rgb(102, 102, 0);
+}
+
+a
+{
+	color: rgb(33, 86, 37);
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+img
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+table, tr, th, td
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+pre
+{
+	font-family: "Courier New", "Courier", sans-serif;
+	white-space: pre-wrap;	/* css-3 */
+	white-space: -moz-pre-wrap;	/* Mozilla, since 1999 */
+	white-space: -pre-wrap;	/* Opera 4-6 */
+	white-space: -o-pre-wrap;	/* Opera 7 */
+	word-wrap: break-word;	/* Internet Explorer 5.5+ */
+}
+
+/**
+ * eBookLibrary
+ */
+h1.ebooklibrary_title
+{
+	font-size: 200%;
+	margin-bottom: 10px;
+}
+
+h1.ebooklibrary_title a
+{
+	color: rgb(56, 33, 16);
+}
+
+h1.ebooklibrary_title .ebooklibrary_search_pattern
+{
+	color: rgb(170, 170, 170);
+}
+
+/* Links */
+#links a
+{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin: 0 1px 0 0;
+	padding: 0;
+}
+
+
+/**
+ * Book List
+ */
+#books
+{
+	width: 800px;
+	margin: 65px auto 15px;
+}
+
+body.kindle #books
+{
+	width: 560px;
+}
+
+#books table
+{
+	width: 800px;
+	border-collapse: collapse;
+}
+
+body.kindle #books table
+{
+	width: 560px;
+}
+
+#books th
+{
+	padding: 5px 0;
+	border-top: 1px solid rgb(187, 181, 150);
+	border-bottom: 1px solid rgb(187, 181, 150);
+}
+
+#books td
+{
+	padding: 7px 0;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+/* ICON header cell */
+#books th:first-child
+{
+	width: 24px;
+	text-align: center;
+	line-height: 0;
+}
+
+/* all cells in ICON column */
+#books td:first-child
+{
+	width: 24px;
+	text-align: center;
+	line-height: 0;
+}
+
+#books img.mobipocket_cover
+{
+	width: 60px;
+	padding: 2px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* NAME header */
+#books th:first-child + th
+{
+	text-align: left;
+	padding: 7px;
+}
+
+/* all other NAME cells */
+#books td:first-child + td
+{
+	padding: 7px;
+}
+
+#books h3.mobipocket_author
+{
+	margin-bottom: 7px;
+}
+
+#books img.mobipocket_icon_text
+{
+	vertical-align: bottom;
+	margin-left: 7px;
+}
+
+#books img.mobipocket_icon_metadata
+{
+	vertical-align: bottom;
+	margin-left: 2px;
+}
+
+#books div.mobipocket_publish
+{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 95%;
+	color: rgb(85, 85, 85);
+
+	margin-top: 7px;
+}
+
+/* LAST MODIFIED header */
+#books th:first-child + th + th
+{
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* all other LAST MODIFIED cells */
+#books td:first-child + td + td
+{
+	width: 120px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* SIZE header */
+#books th:first-child + th + th + th
+{
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* all other SIZE cells */
+#books td:first-child + td + td + td
+{
+	width: 45px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* Latest */
+#books #latest
+{
+	background-color: rgb(244, 242, 233);
+	border: 1px solid rgb(227, 223, 201);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 15px 30px;
+	margin-bottom: 15px;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D');
+	background-position: 0 150px;
+	background-repeat: repeat-x;
+	height: 180px;
+}
+
+#books #latest h1
+{
+	font-size: 20px;
+}
+
+#books #latest .bookshelf
+{
+	margin-top: 15px;
+}
+
+#books #latest img
+{
+	width: 75px;
+	height: 120px;
+	margin-right: 10px;
+}
+
+/* Latest: Scrollable */
+#books #latest .scrollable
+{
+	/* required settings */
+	position: relative;
+	overflow: hidden;
+	width: 636px;
+	height: 130px;
+}
+
+#books #latest .scrollable .items
+{
+	/* this cannot be too large */
+	width: 20000em;
+	position: absolute;
+	clear: both;
+}
+
+#books #latest .items div
+{
+	float: left;
+	width: 680px;
+}
+
+/* single scrollable item */
+#books #latest .scrollable img
+{
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #fff;
+	padding: 2px;
+	border: 1px solid #ccc;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* active item */
+#books #latest .scrollable .active
+{
+	border: 2px solid #000;
+	position: relative;
+	cursor: default;
+}
+
+/* this makes it possible to add next button beside scrollable */
+#books #latest .scrollable
+{
+	float: left;
+}
+
+/* prev, next, prevPage and nextPage buttons */
+#books #latest a.browse
+{
+	background: url(/images/nav.png) no-repeat;
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin: 60px 21px;
+	cursor: pointer;
+	font-size: 1px;
+}
+
+/* right */
+#books #latest a.right
+{
+	background-position: 0 -30px;
+	clear: right;
+	margin-right: 0px;
+}
+
+#books #latest a.right:hover
+{
+	background-position: -30px -30px;
+}
+
+#books #latest a.right:active
+{
+	background-position: -60px -30px;
+}
+
+/* left */
+#books #latest a.left
+{
+	margin-left: 0px;
+}
+
+#books #latest a.left:hover
+{
+	background-position: -30px 0;
+}
+
+#books #latest a.left:active
+{
+	background-position: -60px 0;
+}
+
+/* disabled navigational button */
+#books #latest a.left.disabled
+{
+	background: url(/images/nav_disabled.png) no-repeat;
+	background-position: 0px 0px;
+	cursor: default;
+}
+
+#books #latest a.right.disabled
+{
+	background: url(/images/nav_disabled.png) no-repeat;
+	background-position: 0px -30px;
+	cursor: default;
+}
+
+/**
+ * MOBIPocket
+ */
+#mobipocket
+{
+	width: 800px;
+	margin: 65px auto 15px;
+	font-family: Georgia, serif;
+}
+
+body.kindle #mobipocket
+{
+	width: 560px;
+}
+
+#mobipocket img.mobipocket_cover
+{
+	width: 150px;
+	float: left;
+	margin: 0 15px 10px 0;
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#mobipocket .mobipocket_description
+{
+	font-size: 14px;
+	margin: 10px 0;
+}
+
+#mobipocket .mobipocket_details
+{
+	clear: both;
+
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 95%;
+	color: rgb(85, 85, 85);
+
+	padding: 10px 0;
+	margin: 10px 0;
+	border-top: 1px solid rgb(221, 221, 221);
+	border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+#mobipocket .mobipocket_publish
+{
+	margin-bottom: 10px;
+}
+
+#mobipocket .mobipocket_data_row:after
+{
+	content: '.';
+	display: block;
+	visibility: hidden;
+	height: 0px;
+	clear: both;
+}
+
+#mobipocket .mobipocket_data_title
+{
+	color: rgb(56, 33, 16);
+	font-weight: bold;
+	width: 25%;
+	float: left;
+	margin: 1px 0px;
+}
+
+#mobipocket .mobipocket_data_item
+{
+	width: 75%;
+	float: left;
+	margin: 1px 0px;
+}
+
+/**
+ * Header
+ */
+#header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+
+	background-image: url("data:image/jpeg;base64,%2F9j%2F4AAQSkZJRgABAQEASABIAAD%2F2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD%2F2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD%2FwAARCABAAAEDAREAAhEBAxEB%2F8QAFgABAQEAAAAAAAAAAAAAAAAAAwAI%2F8QAHBABAAEEAwAAAAAAAAAAAAAAABICAwQRFFSS%2F8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECBP%2FEABURAQEAAAAAAAAAAAAAAAAAAAAR%2F9oADAMBAAIRAxEAPwDREXI2TSoWLQWKoTShGhADn4PYte6SD%2F%2FZ");
+	background-repeat: repeat-x;
+	border-bottom: 1px solid rgb(227, 223, 201);
+}
+
+#header_content
+{
+	width: 800px;
+	height: 45px;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+body.kindle #header_content
+{
+	width: 560px;
+}
+
+/* Logo */
+#header #logo
+{
+	float: left;
+	margin-top: 5px;
+}
+
+/* Links */
+#header #links
+{
+	float: right;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+
+/* Search Box */
+#header #searchbox
+{
+	position: relative;
+	float: right;
+	margin-top: 6px;
+}
+
+#header #search
+{
+	font-family: "MS Shell Dlg";
+	font-size: 110%;
+	color: rgb(153, 153, 153);
+	width: 155px;
+	padding: 4px 25px 5px 5px;
+	border: 1px solid rgb(227, 223, 201);
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#header #searchbox img
+{
+	position: absolute;
+	top: 6px;
+	right: 4px;
+}
+
+/* Dropdown Menu */
+#header #dropdown
+{
+	position: relative;
+	float: left;
+	height: 17px;
+	margin: 17px -22px 0 25px;
+	white-space: nowrap;
+}
+
+#header #dropdown a
+{
+	display: block;
+	font-size: 12px;
+	color: rgb(56, 33, 16);
+	line-height: 16px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#header #dropdown img
+{
+	vertical-align: bottom;
+	padding-right: 5px;
+}
+
+#header #dropdown .basemenu
+{
+	position: absolute;
+	z-index: 110;
+	height: 23px;
+	padding: 6px 0 0 10px;
+	margin: -11px 0 0 -10px;
+	background: url(/images/arrow.png) 191px 12px no-repeat;
+	width: 196px;
+}
+
+#header #dropdown #collapsed
+{
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	box-shadow: 0 0px 2px rgba(0, 0, 0, 0.45);
+}
+
+body.kindle #header #dropdown #collapsed
+{
+	border: 1px solid rgb(227, 223, 201);
+	background-color: #fff;
+}
+
+#header #dropdown .submenu
+{
+	position: absolute;
+	display: none;
+	z-index: 100;
+	top: -12px;
+	left: -20px;
+	padding: 31px 0 5px;
+	margin-left: 10px;
+	background: #fff;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+	width: 206px;
+}
+
+body.kindle #header #dropdown .submenu
+{
+	border: 1px solid rgb(227, 223, 201);
+}
+
+#header #dropdown .submenu ul
+{
+	list-style: none;
+	margin: 0px;
+	padding: 5px 0 0 0px;
+	border-top: 1px solid rgb(227, 223, 201);
+}
+
+#header #dropdown li a
+{
+	font-weight: bold;
+	padding: 5px 10px;
+	border-top: 1px solid rgb(255, 255, 255);
+	border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+#header #dropdown li a:hover
+{
+	background-image: url("data:image/jpeg;base64,%2F9j%2F4AAQSkZJRgABAQEASABIAAD%2F2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD%2F2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD%2FwAARCABAAAEDAREAAhEBAxEB%2F8QAFgABAQEAAAAAAAAAAAAAAAAAAwAI%2F8QAHBABAAEEAwAAAAAAAAAAAAAAABICAwQRFFSS%2F8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECBP%2FEABURAQEAAAAAAAAAAAAAAAAAAAAR%2F9oADAMBAAIRAxEAPwDREXI2TSoWLQWKoTShGhADn4PYte6SD%2F%2FZ");
+	background-repeat: repeat-x;
+	border-top: 1px solid rgb(227, 223, 201);
+	border-bottom: 1px solid rgb(227, 223, 201);
+}
+
+/**
+ * Footer
+ */
+#footer
+{
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAjCAYAAABVcWC0AAAAKklEQVQIW2O6f%2F%2F%2BfyY%2BPj4GJnZ2dgYmBiBgYmRkhBIILk4JYtWBWZQSAL91BEOsO1eMAAAAAElFTkSuQmCC");
+	background-repeat: repeat-x;
+}
+
+#footer_content
+{
+	width: 800px;
+	height: 30px;
+	margin: 0 auto;
+	padding-top: 12px;
+}
+
+body.kindle #footer_content
+{
+	width: 560px;
+}
+
+#footer .copyright
+{
+	font-family: Georgia, serif;
+	font-size: 11px;
+	color: rgb(102, 102, 102);
+}
+
+#footer .footer_links
+{
+	font-family: Georgia, serif;
+	font-size: 11px;
+	color: rgb(102, 102, 102);
+	float: right;
+}
+
+#footer .footer_links a
+{
+	color: rgb(102, 102, 102);
+}
+
+#footer .footer_link_sep
+{
+	color: rgb(102, 102, 102);
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* ReadMe */
+#readme
+{
+	width: 800px;
+	margin: 15px auto;
+}
+
+body.kindle #readme
+{
+	width: 560px;
+}
+
+/**
+ * Title Screen
+ */
+#title
+{
+	width: 400px;
+	margin: 15px auto;
+	margin-top: 10%;
+}
+
+#title #login
+{
+	margin: 0;
+	padding: 7px 0 0;
+}
+
+#title #kindle
+{
+	float: left;
+	height: 250px;
+}
+
+#title #logo
+{
+	margin: 45px 0px 2px 0px;
+	width: 162px;
+}
+
+/**
+ * Links Page
+ */
+#links_page
+{
+	width: 800px;
+	margin: 0px auto 15px;
+}
+
+body.kindle #links_page
+{
+	width: 560px;
+}
+
+#links_page .link_section
+{
+	margin-top: 10px;
+}
+
+#links_page h2.link_title
+{
+	height: 32px;
+	line-height: 32px;
+	padding-left: 36px;
+}
+
+#links_page .link_entry
+{
+	margin-left: 36px;
+}
+
+#links_page .link_label
+{
+	font-family: Georgia, serif;
+	font-size: 110%;
+	color: rgb(102, 102, 0);
+	font-weight: 400;
+}
+

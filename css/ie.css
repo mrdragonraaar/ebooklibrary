@@ -1,0 +1,50 @@
+/**
+ * ie.css
+ * 
+ * (c)2013 mrdragonraaar.com
+ */
+
+/**
+ * Book List
+ */
+#books
+{
+	padding-top: 65px;
+}
+
+/**
+ * MOBIPocket
+ */
+#mobipocket
+{
+	padding-top: 65px;
+}
+
+#mobipocket .mobipocket_details
+{
+	padding-bottom: 30px;
+}
+
+/**
+ * Header
+ */
+
+/* Dropdown Menu */
+#header #dropdown #collapsed
+{
+	border: 1px solid rgb(227, 223, 201);
+}
+
+#header #dropdown .submenu
+{
+	border: 1px solid rgb(227, 223, 201);
+}
+
+/**
+ * Links Page
+ */
+#links_page
+{
+	padding-top: 65px;
+}
+
