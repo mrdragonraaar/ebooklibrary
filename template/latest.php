@@ -22,10 +22,9 @@ $latest_books = $this->latest_books();
 $book_count = 0;
 foreach ($latest_books as $file => $mtime)
 {
-	if ($fh = fopen($file, "r"))
+	$mobi = new mobipocket();
+	if ($mobi->open($file))
 	{
-		$mobi = new mobipocket();
-		$mobi->read($fh);
 		$url = books_path2url($file);
 
 		if ($book_count % LATEST_MAX_SHOW == 0)
@@ -44,7 +43,7 @@ foreach ($latest_books as $file => $mtime)
 ?>
 <a title="<?php echo $mobi->title(); ?> by <?php echo $mobi->author(); ?>" href="<?php echo $url; ?>"><img src="data:image/jpg;base64,<?php echo base64_encode($mobi->cover()); ?>"/></a>
 <?php
-		fclose($fh);
+		$mobi->close();
 	}
 
 	$book_count++;
