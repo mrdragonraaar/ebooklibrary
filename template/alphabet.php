@@ -15,7 +15,6 @@ $letter = chr($i);
 $selected = false;
 if (search_pattern() == "$letter*") $selected = true;
 ?>
-|
-<a class="letter<?php if ($selected) echo ' selected'; ?>" title="<?php echo $letter; ?>" href="?P=<?php echo $letter; ?>*"><?php echo $letter; ?></a>
+|<a class="letter<?php if ($selected) echo ' selected'; ?>" title="<?php echo $letter; ?>" href="?P=<?php echo $letter; ?>*"><?php echo $letter; ?></a>
 <?php } ?>
 </div>

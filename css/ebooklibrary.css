@@ -408,12 +408,12 @@ body.kindle #alphabet
 
 #alphabet .letter
 {
-	margin: 0 6px;
+	margin: 0 7px;
 }
 
 body.kindle #alphabet .letter
 {
-	margin: 0 1px;
+	margin: 0 3px;
 }
 
 #alphabet .letter.selected
