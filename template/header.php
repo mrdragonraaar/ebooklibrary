@@ -73,6 +73,12 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 <?php } ?>
 <!-- END Latest -->
 
+<!-- Alphabet Links -->
+<?php if (is_books_url()) { ?>
+<?php template_alphabet(); ?>
+<?php } ?>
+<!-- END Alphabet Links -->
+
 <!-- Directory Heading -->
 <?php if (!is_books_url() && is_books_sub_url() && !isset($mobipocket)) { ?>
 <h1 class="ebooklibrary_title">

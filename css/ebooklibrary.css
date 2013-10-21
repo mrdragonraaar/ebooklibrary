@@ -391,6 +391,36 @@ body.kindle #books table
 	cursor: default;
 }
 
+/* Alphabet Links */
+#alphabet
+{
+	width: 800px;
+	padding: 7px 0;
+	border-top: 1px solid rgb(187, 181, 150);
+	color: rgb(232, 232, 232);
+	text-align: center;
+}
+
+body.kindle #alphabet
+{
+	width: 560px;
+}
+
+#alphabet .letter
+{
+	margin: 0 6px;
+}
+
+body.kindle #alphabet .letter
+{
+	margin: 0 1px;
+}
+
+#alphabet .letter.selected
+{
+	font-weight: bold;
+}
+
 /**
  * MOBIPocket
  */

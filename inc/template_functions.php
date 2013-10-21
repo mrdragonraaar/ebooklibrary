@@ -67,4 +67,23 @@ function return_template_latest()
 	return $latest->return_template();
 }
 
+/**
+ * Display alphabet links template.
+ */
+function template_alphabet()
+{
+	$alphabet = new Template('alphabet');
+	$alphabet->template();
+}
+
+/**
+ * Get alphabet links template.
+ * @return template html
+ */
+function return_template_alphabet()
+{
+	$alphabet = new Template('alphabet');
+	return $alphabet->return_template();
+}
+
 ?>
