@@ -165,6 +165,7 @@ body.kindle #books table
 #books img.mobipocket_cover
 {
 	width: 60px;
+	height: 90px;
 	padding: 2px;
 	background-color: #fff;
 	border: 1px solid #ccc;
@@ -439,6 +440,7 @@ body.kindle #mobipocket
 #mobipocket img.mobipocket_cover
 {
 	width: 150px;
+	height: 230px;
 	float: left;
 	margin: 0 15px 10px 0;
 	padding: 4px;
