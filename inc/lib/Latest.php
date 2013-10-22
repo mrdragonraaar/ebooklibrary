@@ -62,7 +62,7 @@ class Latest extends Template
 				else
 				{
 					if (pathinfo($filename, PATHINFO_EXTENSION) == 'mobi')
-						$booklist[$filename] = filemtime($filename);
+						$booklist[$filename] = filectime($filename);
 				}
 			}
 
