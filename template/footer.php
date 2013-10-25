@@ -18,11 +18,11 @@ require_once(__DIR__ . '/../inc/functions.php');
 <div id="footer_content">
 <!-- Footer Links -->
 <span class="footer_links">
-<a href="<?php echo BOOKS_URL; ?>">books</a>
+<a href="<?php echo BOOKS_URI; ?>">books</a>
 <span class="footer_link_sep">|</span>
-<a href="<?php echo SITE_URL; ?>magazines/">magazines</a>
+<a href="<?php echo SITE_URI; ?>magazines/">magazines</a>
 <span class="footer_link_sep">|</span>
-<a href="<?php echo SITE_URL; ?>links/">links</a>
+<a href="<?php echo SITE_URI; ?>links/">links</a>
 </span>
 <!-- END Footer Links -->
 <span class="copyright">&copy; 2013 mrdragonraaar.com</span>

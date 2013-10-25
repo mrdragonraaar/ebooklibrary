@@ -16,56 +16,56 @@ function is_kindle()
 }
 
 /**
- * Get the current url.
- * @return current url
+ * Get the current uri.
+ * @return current uri
  */
-function current_url()
+function current_uri()
 {
 	return rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 }
 
 /**
- * Check whether current url is site url.
- * @return true if current url is site url
+ * Check whether current uri is site uri.
+ * @return true if current uri is site uri
  */
-function is_site_url()
+function is_site_uri()
 {
-	return current_url() === SITE_URL;
+	return current_uri() === SITE_URI;
 }
 
 /**
- * Check whether current url is books url.
- * @return true if current url is books url
+ * Check whether current uri is books uri.
+ * @return true if current uri is books uri
  */
-function is_books_url()
+function is_books_uri()
 {
-	return current_url() === BOOKS_URL;
+	return current_uri() === BOOKS_URI;
 }
 
 /**
- * Get remaining path component under books url
- * of given url.
- * @param $url url
- * @return books sub-url
+ * Get remaining path component under books uri
+ * of given uri.
+ * @param $uri uri
+ * @return books sub-uri
  */
-function books_sub_url($url)
+function books_sub_uri($uri)
 {
-	$url = rawurldecode($url);
+	$uri = rawurldecode($uri);
 
-	if (substr($url, 0, strlen(BOOKS_URL)) === BOOKS_URL)
-		return substr($url, strlen(BOOKS_URL));
+	if (substr($uri, 0, strlen(BOOKS_URI)) === BOOKS_URI)
+		return substr($uri, strlen(BOOKS_URI));
 
 	return '';
 }
 
 /**
- * Check whether current url is sub-url of books url.
- * @param $url url
- * @return true if books sub-url
+ * Check whether current uri is sub-uri of books uri.
+ * @param $uri uri
+ * @return true if books sub-uri
  */
-function is_books_sub_url()
+function is_books_sub_uri()
 {
-	return books_sub_url(current_url()) ? true : false;
+	return books_sub_uri(current_uri()) ? true : false;
 }
 
 /**
@@ -76,30 +76,30 @@ function is_books_sub_url()
  */
 function books_sub_path($path)
 {
-	if (substr($path, 0, strlen(BOOKS_PATH)) === BOOKS_PATH)
-		return substr($path, strlen(BOOKS_PATH));
+	if (substr($path, 0, strlen(BOOKS_ROOT)) === BOOKS_ROOT)
+		return substr($path, strlen(BOOKS_ROOT));
 
 	return '';
 }
 
 /**
- * Convert books url to books path.
- * @param $url books url
+ * Convert books uri to books path.
+ * @param $uri books uri
  * @return books path
  */
-function books_url2path($url)
+function books_uri2path($uri)
 {
-	return BOOKS_PATH . books_sub_url($url);
+	return BOOKS_ROOT . books_sub_uri($uri);
 }
 
 /**
- * Convert books path to books url.
+ * Convert books path to books uri.
  * @param $path books path
- * @return books url
+ * @return books uri
  */
-function books_path2url($path)
+function books_path2uri($path)
 {
-	return BOOKS_URL . books_sub_path($path);
+	return BOOKS_URI . books_sub_path($path);
 }
 
 /**
@@ -116,9 +116,9 @@ function search_pattern()
  */
 function readme()
 {
-	if (is_books_sub_url())
+	if (is_books_sub_uri())
 	{
-		$path = books_url2path(current_url());
+		$path = books_uri2path(current_uri());
 		$readme_html = $path . README_NAME . '.html';
 		$readme_txt = $path . README_NAME . '.txt';
 

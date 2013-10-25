@@ -10,15 +10,15 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo SITE_TITLE; ?> | <?php echo isset($mobipocket) ? $mobipocket->title() : basename(current_url()); ?></title>
+<title><?php echo SITE_TITLE; ?> | <?php echo isset($mobipocket) ? $mobipocket->title() : basename(current_uri()); ?></title>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta charset="utf-8">
 <link rel="shortcut icon" href="<?php echo ICON_SITE; ?>" />
 <link rel="stylesheet" href="/global/css/icons/css-social-icons/css-social-icons.php" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo CSS_URL; ?>ebooklibrary.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo CSS_URI; ?>ebooklibrary.css" type="text/css" media="screen" />
 <!--[if lt IE 8]>
-<link rel="stylesheet" href="<?php echo CSS_URL; ?>ie.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo CSS_URI; ?>ie.css" type="text/css" media="screen" />
 <![endif]-->
 <script type="text/javascript" src="/global/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/global/js/jquery/jquery.tools.min.js"></script>
@@ -31,7 +31,7 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 
 <!-- Logo -->
 <div id="logo">
-<a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URL; ?>"><img alt="<?php echo SITE_TITLE; ?>" src="<?php echo LOGO_URL; ?>"></a>
+<a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URI; ?>"><img alt="<?php echo SITE_TITLE; ?>" src="<?php echo LOGO_URI; ?>"></a>
 </div>
 <!-- END Logo -->
 
@@ -68,21 +68,21 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 <?php } ?>
 
 <!-- Latest -->
-<?php if (is_books_url() && !is_kindle()) { ?>
+<?php if (is_books_uri() && !is_kindle()) { ?>
 <?php template_latest(); ?>
 <?php } ?>
 <!-- END Latest -->
 
 <!-- Alphabet Links -->
-<?php if (is_books_url()) { ?>
+<?php if (is_books_uri()) { ?>
 <?php template_alphabet(); ?>
 <?php } ?>
 <!-- END Alphabet Links -->
 
 <!-- Directory Heading -->
-<?php if (!is_books_url() && is_books_sub_url() && !isset($mobipocket)) { ?>
+<?php if (!is_books_uri() && is_books_sub_uri() && !isset($mobipocket)) { ?>
 <h1 class="ebooklibrary_title">
-<a title="<?php echo basename(current_url()); ?>" href="<?php echo current_url(); ?>"><?php echo basename(current_url()); ?></a>
+<a title="<?php echo basename(current_uri()); ?>" href="<?php echo current_uri(); ?>"><?php echo basename(current_uri()); ?></a>
 <?php if (search_pattern()) { ?>
 <span class="ebooklibrary_search_pattern">(Search: <?php echo search_pattern(); ?>)</span>
 <?php } ?>

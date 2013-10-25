@@ -8,7 +8,7 @@ if (basename($_SERVER['PHP_SELF']) == 'alphabet.php')
 	die('You cannot load this page directly.');
 ?>
 <div id="alphabet">
-<a class="letter<?php if (!search_pattern()) echo ' selected'; ?>" title="All" href="<?php echo current_url(); ?>">All</a>
+<a class="letter<?php if (!search_pattern()) echo ' selected'; ?>" title="All" href="<?php echo current_uri(); ?>">All</a>
 <?php
 for ($i = 65; $i <= 90; $i++) {
 $letter = chr($i);

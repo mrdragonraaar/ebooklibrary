@@ -33,7 +33,7 @@ class Latest extends Template
 	{
 		$booklist = array();
 
-		$booklist = self::booklist(BOOKS_PATH);
+		$booklist = self::booklist(BOOKS_ROOT);
 		arsort($booklist);
 		$booklist = array_slice($booklist, 0, LATEST_MAX_BOOKS);
 
