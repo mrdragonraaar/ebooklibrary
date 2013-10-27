@@ -4,12 +4,17 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
+if (basename($_SERVER['PHP_SELF']) == 'config.php')
+	die('You cannot load this page directly.');
 
 // site title
 define('SITE_TITLE', 'ebooklibrary');
 
-// site logo filename
-define('SITE_LOGO', 'ebooklibrarylogo.png');
+// theme name
+define('THEME_NAME', 'default');
+
+// readme
+define('README_NAME', 'ReadMe');
 
 // icons
 define('ICON_SITE', '/global/icons/fugue-icons/icons/e-book-reader-black.png');
@@ -18,37 +23,25 @@ define('ICON_DIR_OPEN', '/global/icons/fugue-icons/icons/folder-horizontal-open.
 define('ICON_DIR_CLOSED', '/global/icons/fugue-icons/icons/folder-horizontal.png');
 define('ICON_MOBI', '/global/icons/fugue-icons/icons/document-mobi.png');
 
-// dropdown
-define('DROPDOWN_LABEL_WIDTH', 24);
-
-// latest
-define('LATEST_TITLE', 'Latest additions');
-define('LATEST_MAX_BOOKS', 21);
-define('LATEST_MAX_SHOW', 7);
-
-// readme
-define('README_NAME', 'ReadMe');
-
-
 
 
 if (!defined('SITE_ROOT'))
 	define('SITE_ROOT', dirname(__DIR__) . '/');
 if (!defined('SITE_URI'))
 	define('SITE_URI', substr(SITE_ROOT, strlen($_SERVER['DOCUMENT_ROOT'])));
+
 if (!defined('INC_PATH'))
 	define('INC_PATH', SITE_ROOT . 'inc/');
-if (!defined('LIB_PATH'))
-	define('LIB_PATH', INC_PATH . 'lib/');
-if (!defined('TEMPLATE_PATH'))
-	define('TEMPLATE_PATH', SITE_ROOT . 'template/');
-if (!defined('IMG_URI'))
-	define('IMG_URI', SITE_URI . 'images/');
-if (!defined('CSS_URI'))
-	define('CSS_URI', SITE_URI . 'css/');
 
-if (!defined('LOGO_URI'))
-	define('LOGO_URI', IMG_URI . trim(SITE_LOGO, '/'));
+if (!defined('THEME_ROOT'))
+	define('THEME_ROOT', SITE_ROOT . 'theme/' . THEME_NAME . '/');
+if (!defined('THEME_URI'))
+	define('THEME_URI', SITE_URI . 'theme/' . THEME_NAME . '/');
+
+if (!defined('PLUGINS_ROOT'))
+	define('PLUGINS_ROOT', SITE_ROOT . 'plugins/');
+if (!defined('PLUGINS_URI'))
+	define('PLUGINS_URI', SITE_URI . 'plugins/');
 
 define('BOOKS_DIR', 'books');
 if (!defined('BOOKS_URI'))
@@ -57,15 +50,15 @@ if (!defined('BOOKS_ROOT'))
 	define('BOOKS_ROOT', books_root());
 
 /**
- * Get the root path to eBooks.
+ * Get the books root path.
+ * @return books root
  */
 function books_root()
 {
-	$req_uri = $_SERVER['REQUEST_URI'];
-	if (strpos($req_uri, BOOKS_URI) !== 0)
+	if (strpos($_SERVER['REQUEST_URI'], BOOKS_URI) !== 0)
 		return null;
 
-	$r = apache_lookup_uri($req_uri);
+	$r = apache_lookup_uri($_SERVER['REQUEST_URI']);
 	$uri = explode('/', trim($r->uri, '/'));
 	$path = explode('/', trim($r->filename, '/'));
 

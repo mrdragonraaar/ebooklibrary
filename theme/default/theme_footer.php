@@ -1,17 +1,12 @@
 <?php
 /**
- * footer.php
+ * theme_footer.php
  * 
  * (c)2013 mrdragonraaar.com
  */
-require_once(__DIR__ . '/../inc/functions.php');
 ?>
 </div>
 <!-- END Books / MOBIPocket -->
-
-<div id="readme">
-<?php readme(); ?>
-</div>
 
 <!-- Footer -->
 <div id="footer">
@@ -29,5 +24,6 @@ require_once(__DIR__ . '/../inc/functions.php');
 </div>
 </div>
 <!-- END Footer -->
+
 </body>
 </html>

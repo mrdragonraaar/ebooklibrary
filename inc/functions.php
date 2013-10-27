@@ -4,7 +4,13 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
-require_once('config.php');
+if (basename($_SERVER['PHP_SELF']) == 'functions.php')
+	die('You cannot load this page directly.');
+
+require_once(__DIR__ . '/config.php');
+require_once(__DIR__ . '/theme_functions.php');
+require_once(__DIR__ . '/plugin_functions.php');
+require_once('mobipocket/mobipocket.php');
 
 /**
  * Check whether browser is kindle browser.
@@ -109,6 +115,41 @@ function books_path2uri($path)
 function search_pattern()
 {
 	return array_key_exists('P', $_GET) ? $_GET['P'] : '';
+}
+
+/**
+ * Get array of books in specified directory.
+ * @param $dir directory
+ * @param $books array of books
+ * @return new array of books
+ */
+function books($dir = BOOKS_ROOT, $books = array())
+{
+	if (!isset($dir) || !is_dir($dir))
+		return $books;
+
+	if ($dh = opendir($dir))
+	{
+		while (false !== ($entry = readdir($dh)))
+		{
+			if (($entry == '.') || ($entry == '..'))
+				continue;
+
+			$file = rtrim($dir, '/') . '/' . $entry;
+
+			if (is_dir($file))
+				$books = books($file, $books);
+			else
+			{
+				if (pathinfo($file, PATHINFO_EXTENSION) == 'mobi')
+					$books[$file] = stat($file);
+			}
+		}
+
+		closedir($dh);
+	}
+
+	return $books;
 }
 
 /**

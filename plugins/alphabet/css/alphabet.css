@@ -1,0 +1,29 @@
+/**
+ * alphabet.css
+ * 
+ * (c)2013 mrdragonraaar.com
+ */
+
+/* Alphabet Links */
+#alphabet
+{
+	padding: 7px 0;
+	color: rgb(232, 232, 232);
+	text-align: center;
+}
+
+#alphabet .letter
+{
+	margin: 0 9px;
+}
+
+body.kindle #alphabet .letter
+{
+	margin: 0 4px;
+}
+
+#alphabet .letter.selected
+{
+	font-weight: bold;
+}
+

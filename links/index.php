@@ -4,7 +4,8 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
-include_once(__DIR__ . '/../template/header.php');
+define('ICON_PAGE', '/global/icons/fugue-icons/icons/chain.png');
+include_once(__DIR__ . '/../header.php');
 ?>
 <!-- Links -->
 <div id="links_page">
@@ -88,5 +89,5 @@ include_once(__DIR__ . '/../template/header.php');
 </div>
 <!-- END Links -->
 <?php
-include_once(__DIR__ . '/../template/footer.php');
+include_once(__DIR__ . '/../footer.php');
 ?>

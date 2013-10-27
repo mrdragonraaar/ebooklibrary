@@ -1,42 +1,23 @@
 <?php
 /**
- * header.php
+ * theme_header.php
  * 
  * (c)2013 mrdragonraaar.com
  */
-require_once(__DIR__ . '/../inc/functions.php');
-require_once(__DIR__ . '/../inc/template_functions.php');
+require_once(__DIR__ . '/config.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title><?php echo SITE_TITLE; ?> | <?php echo isset($mobipocket) ? $mobipocket->title() : basename(current_uri()); ?></title>
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="-1">
-<meta charset="utf-8">
-<link rel="shortcut icon" href="<?php echo ICON_SITE; ?>" />
-<link rel="stylesheet" href="/global/css/icons/css-social-icons/css-social-icons.php" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo CSS_URI; ?>ebooklibrary.css" type="text/css" media="screen" />
-<!--[if lt IE 8]>
-<link rel="stylesheet" href="<?php echo CSS_URI; ?>ie.css" type="text/css" media="screen" />
-<![endif]-->
-<script type="text/javascript" src="/global/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/global/js/jquery/jquery.tools.min.js"></script>
-</head>
-
-<body<?php if (is_kindle()) { ?> class="kindle"<?php } ?>>
 <!-- Header -->
 <div id="header">
 <div id="header_content">
 
 <!-- Logo -->
 <div id="logo">
-<a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URI; ?>"><img alt="<?php echo SITE_TITLE; ?>" src="<?php echo LOGO_URI; ?>"></a>
+<a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URI; ?>"><img alt="<?php echo SITE_TITLE; ?>" src="<?php echo THEME_LOGO; ?>"></a>
 </div>
 <!-- END Logo -->
 
 <!-- Dropdown Menu -->
-<?php template_dropdown(isset($mobipocket) ? $mobipocket : null); ?>
+<?php if (function_exists('dropdown')) dropdown(isset($mobipocket) ? $mobipocket : null); ?>
 <!-- END Dropdown Menu -->
 
 <!-- Search Box -->
@@ -52,7 +33,7 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 
 <!-- Links -->
 <?php if (!is_kindle()) { ?>
-<?php template_links(); ?>
+<?php if (function_exists('links')) links(); ?>
 <?php } ?>
 <!-- END Links -->
 
@@ -69,13 +50,13 @@ require_once(__DIR__ . '/../inc/template_functions.php');
 
 <!-- Latest -->
 <?php if (is_books_uri() && !is_kindle()) { ?>
-<?php template_latest(); ?>
+<?php if (function_exists('latest')) latest(); ?>
 <?php } ?>
 <!-- END Latest -->
 
 <!-- Alphabet Links -->
 <?php if (is_books_uri()) { ?>
-<?php template_alphabet(); ?>
+<?php if (function_exists('alphabet')) alphabet(); ?>
 <?php } ?>
 <!-- END Alphabet Links -->
 

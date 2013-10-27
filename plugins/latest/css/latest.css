@@ -1,0 +1,154 @@
+/**
+ * latest.css
+ * 
+ * (c)2013 mrdragonraaar.com
+ */
+
+#latest
+{
+	background-color: rgb(244, 242, 233);
+	border: 1px solid rgb(227, 223, 201);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 15px 30px;
+	margin-bottom: 15px;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D');
+	background-position: 0 150px;
+	background-repeat: repeat-x;
+	height: 180px;
+}
+
+#latest h1
+{
+	font-size: 20px;
+	margin: 0;
+}
+
+#latest .bookshelf
+{
+	margin-top: 15px;
+}
+
+#latest img
+{
+	width: 75px;
+	height: 120px;
+	margin-right: 10px;
+}
+
+/* Latest: Scrollable */
+#latest .scrollable
+{
+	/* required settings */
+	position: relative;
+	overflow: hidden;
+	width: 636px;
+	height: 130px;
+}
+
+#latest .scrollable .items
+{
+	/* this cannot be too large */
+	width: 20000em;
+	position: absolute;
+	clear: both;
+}
+
+#latest .items div
+{
+	float: left;
+	width: 680px;
+}
+
+/* single scrollable item */
+#latest .scrollable img
+{
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #fff;
+	padding: 2px;
+	border: 1px solid #ccc;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* active item */
+#latest .scrollable .active
+{
+	border: 2px solid #000;
+	position: relative;
+	cursor: default;
+}
+
+/* this makes it possible to add next button beside scrollable */
+#latest .scrollable
+{
+	float: left;
+}
+
+/* prev, next, prevPage and nextPage buttons */
+#latest a.browse
+{
+	background: url(../images/nav.png) no-repeat;
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin: 60px 21px;
+	cursor: pointer;
+	font-size: 1px;
+}
+
+/* right */
+#latest a.right
+{
+	background-position: 0 -30px;
+	clear: right;
+	margin-right: 0px;
+}
+
+#latest a.right:hover
+{
+	background-position: -30px -30px;
+}
+
+#latest a.right:active
+{
+	background-position: -60px -30px;
+}
+
+/* left */
+#latest a.left
+{
+	margin-left: 0px;
+}
+
+#latest a.left:hover
+{
+	background-position: -30px 0;
+}
+
+#latest a.left:active
+{
+	background-position: -60px 0;
+}
+
+/* disabled navigational button */
+#latest a.left.disabled
+{
+	background: url(../images/nav_disabled.png) no-repeat;
+	background-position: 0px 0px;
+	cursor: default;
+}
+
+#latest a.right.disabled
+{
+	background: url(../images/nav_disabled.png) no-repeat;
+	background-position: 0px -30px;
+	cursor: default;
+}
+

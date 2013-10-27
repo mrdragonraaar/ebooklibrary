@@ -1,10 +1,10 @@
 <?php
 /**
- * links.php
+ * template_links.php
  * 
  * (c)2013 mrdragonraaar.com
  */
-if (basename($_SERVER['PHP_SELF']) == 'links.php')
+if (basename($_SERVER['PHP_SELF']) == 'template_links.php')
 	die('You cannot load this page directly.');
 ?>
 <div id="links">

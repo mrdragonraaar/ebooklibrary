@@ -1,5 +1,5 @@
 /**
- * ebooklibrary.css
+ * default.css
  * 
  * (c)2013 mrdragonraaar.com
  */
@@ -78,9 +78,7 @@ pre
 	word-wrap: break-word;	/* Internet Explorer 5.5+ */
 }
 
-/**
- * eBookLibrary
- */
+/* Title */
 h1.ebooklibrary_title
 {
 	font-size: 200%;
@@ -97,19 +95,9 @@ h1.ebooklibrary_title .ebooklibrary_search_pattern
 	color: rgb(170, 170, 170);
 }
 
-/* Links */
-#links a
-{
-	display: inline-block;
-	width: 32px;
-	height: 32px;
-	margin: 0 1px 0 0;
-	padding: 0;
-}
-
 
 /**
- * Book List
+ * Books
  */
 #books
 {
@@ -244,183 +232,6 @@ body.kindle #books table
 	white-space: nowrap;
 }
 
-/* Latest */
-#books #latest
-{
-	background-color: rgb(244, 242, 233);
-	border: 1px solid rgb(227, 223, 201);
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	padding: 15px 30px;
-	margin-bottom: 15px;
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D');
-	background-position: 0 150px;
-	background-repeat: repeat-x;
-	height: 180px;
-}
-
-#books #latest h1
-{
-	font-size: 20px;
-}
-
-#books #latest .bookshelf
-{
-	margin-top: 15px;
-}
-
-#books #latest img
-{
-	width: 75px;
-	height: 120px;
-	margin-right: 10px;
-}
-
-/* Latest: Scrollable */
-#books #latest .scrollable
-{
-	/* required settings */
-	position: relative;
-	overflow: hidden;
-	width: 636px;
-	height: 130px;
-}
-
-#books #latest .scrollable .items
-{
-	/* this cannot be too large */
-	width: 20000em;
-	position: absolute;
-	clear: both;
-}
-
-#books #latest .items div
-{
-	float: left;
-	width: 680px;
-}
-
-/* single scrollable item */
-#books #latest .scrollable img
-{
-	float: left;
-	margin-left: 5px;
-	margin-right: 5px;
-	background-color: #fff;
-	padding: 2px;
-	border: 1px solid #ccc;
-
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-}
-
-/* active item */
-#books #latest .scrollable .active
-{
-	border: 2px solid #000;
-	position: relative;
-	cursor: default;
-}
-
-/* this makes it possible to add next button beside scrollable */
-#books #latest .scrollable
-{
-	float: left;
-}
-
-/* prev, next, prevPage and nextPage buttons */
-#books #latest a.browse
-{
-	background: url(/images/nav.png) no-repeat;
-	display: block;
-	width: 30px;
-	height: 30px;
-	float: left;
-	margin: 60px 21px;
-	cursor: pointer;
-	font-size: 1px;
-}
-
-/* right */
-#books #latest a.right
-{
-	background-position: 0 -30px;
-	clear: right;
-	margin-right: 0px;
-}
-
-#books #latest a.right:hover
-{
-	background-position: -30px -30px;
-}
-
-#books #latest a.right:active
-{
-	background-position: -60px -30px;
-}
-
-/* left */
-#books #latest a.left
-{
-	margin-left: 0px;
-}
-
-#books #latest a.left:hover
-{
-	background-position: -30px 0;
-}
-
-#books #latest a.left:active
-{
-	background-position: -60px 0;
-}
-
-/* disabled navigational button */
-#books #latest a.left.disabled
-{
-	background: url(/images/nav_disabled.png) no-repeat;
-	background-position: 0px 0px;
-	cursor: default;
-}
-
-#books #latest a.right.disabled
-{
-	background: url(/images/nav_disabled.png) no-repeat;
-	background-position: 0px -30px;
-	cursor: default;
-}
-
-/* Alphabet Links */
-#alphabet
-{
-	width: 800px;
-	padding: 7px 0;
-	border-top: 1px solid rgb(187, 181, 150);
-	color: rgb(232, 232, 232);
-	text-align: center;
-}
-
-body.kindle #alphabet
-{
-	width: 560px;
-}
-
-#alphabet .letter
-{
-	margin: 0 7px;
-}
-
-body.kindle #alphabet .letter
-{
-	margin: 0 3px;
-}
-
-#alphabet .letter.selected
-{
-	font-weight: bold;
-}
 
 /**
  * MOBIPocket
@@ -502,6 +313,7 @@ body.kindle #mobipocket
 	margin: 1px 0px;
 }
 
+
 /**
  * Header
  */
@@ -538,14 +350,6 @@ body.kindle #header_content
 	margin-top: 5px;
 }
 
-/* Links */
-#header #links
-{
-	float: right;
-	margin-top: 3px;
-	margin-right: 10px;
-}
-
 /* Search Box */
 #header #searchbox
 {
@@ -574,102 +378,6 @@ body.kindle #header_content
 	right: 4px;
 }
 
-/* Dropdown Menu */
-#header #dropdown
-{
-	position: relative;
-	float: left;
-	height: 17px;
-	margin: 17px -22px 0 25px;
-	white-space: nowrap;
-}
-
-#header #dropdown a
-{
-	display: block;
-	font-size: 12px;
-	color: rgb(56, 33, 16);
-	line-height: 16px;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-#header #dropdown img
-{
-	vertical-align: bottom;
-	padding-right: 5px;
-}
-
-#header #dropdown .basemenu
-{
-	position: absolute;
-	z-index: 110;
-	height: 23px;
-	padding: 6px 0 0 10px;
-	margin: -11px 0 0 -10px;
-	background: url(/images/arrow.png) 191px 12px no-repeat;
-	width: 196px;
-}
-
-#header #dropdown #collapsed
-{
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	box-shadow: 0 0px 2px rgba(0, 0, 0, 0.45);
-}
-
-body.kindle #header #dropdown #collapsed
-{
-	border: 1px solid rgb(227, 223, 201);
-	background-color: #fff;
-}
-
-#header #dropdown .submenu
-{
-	position: absolute;
-	display: none;
-	z-index: 100;
-	top: -12px;
-	left: -20px;
-	padding: 31px 0 5px;
-	margin-left: 10px;
-	background: #fff;
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-	width: 206px;
-}
-
-body.kindle #header #dropdown .submenu
-{
-	border: 1px solid rgb(227, 223, 201);
-}
-
-#header #dropdown .submenu ul
-{
-	list-style: none;
-	margin: 0px;
-	padding: 5px 0 0 0px;
-	border-top: 1px solid rgb(227, 223, 201);
-}
-
-#header #dropdown li a
-{
-	font-weight: bold;
-	padding: 5px 10px;
-	border-top: 1px solid rgb(255, 255, 255);
-	border-bottom: 1px solid rgb(255, 255, 255);
-}
-
-#header #dropdown li a:hover
-{
-	background-image: url("data:image/jpeg;base64,%2F9j%2F4AAQSkZJRgABAQEASABIAAD%2F2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD%2F2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD%2FwAARCABAAAEDAREAAhEBAxEB%2F8QAFgABAQEAAAAAAAAAAAAAAAAAAwAI%2F8QAHBABAAEEAwAAAAAAAAAAAAAAABICAwQRFFSS%2F8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECBP%2FEABURAQEAAAAAAAAAAAAAAAAAAAAR%2F9oADAMBAAIRAxEAPwDREXI2TSoWLQWKoTShGhADn4PYte6SD%2F%2FZ");
-	background-repeat: repeat-x;
-	border-top: 1px solid rgb(227, 223, 201);
-	border-bottom: 1px solid rgb(227, 223, 201);
-}
 
 /**
  * Footer
@@ -723,42 +431,38 @@ body.kindle #footer_content
 /* ReadMe */
 #readme
 {
-	width: 800px;
-	margin: 15px auto;
+	margin: 15px 0;
 }
 
-body.kindle #readme
-{
-	width: 560px;
-}
 
 /**
- * Title Screen
+ * Front Page
  */
-#title
+#front
 {
 	width: 400px;
 	margin: 15px auto;
 	margin-top: 10%;
 }
 
-#title #login
+#front #login
 {
 	margin: 0;
 	padding: 7px 0 0;
 }
 
-#title #kindle
+#front #kindle
 {
 	float: left;
 	height: 250px;
 }
 
-#title #logo
+#front #logo
 {
 	margin: 45px 0px 2px 0px;
 	width: 162px;
 }
+
 
 /**
  * Links Page
@@ -797,5 +501,23 @@ body.kindle #links_page
 	font-size: 110%;
 	color: rgb(102, 102, 0);
 	font-weight: 400;
+}
+
+
+/**
+ * Plugins
+ */
+/* Alphabet Links */
+#alphabet
+{
+	border-top: 1px solid rgb(187, 181, 150);
+}
+
+/* Links */
+#header #links
+{
+	float: right;
+	margin-top: 3px;
+	margin-right: 10px;
 }
 

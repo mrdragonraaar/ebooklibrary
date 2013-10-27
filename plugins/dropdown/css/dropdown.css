@@ -1,0 +1,103 @@
+/**
+ * dropdown.css
+ * 
+ * (c)2013 mrdragonraaar.com
+ */
+
+/* Dropdown Menu */
+#dropdown
+{
+	position: relative;
+	float: left;
+	height: 17px;
+	margin: 17px -22px 0 25px;
+	white-space: nowrap;
+}
+
+#dropdown a
+{
+	display: block;
+	font-size: 12px;
+	color: rgb(56, 33, 16);
+	line-height: 16px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#dropdown img
+{
+	vertical-align: bottom;
+	padding-right: 5px;
+}
+
+#dropdown .basemenu
+{
+	position: absolute;
+	z-index: 110;
+	height: 23px;
+	padding: 6px 0 0 10px;
+	margin: -11px 0 0 -10px;
+	background: url(../images/arrow.png) 191px 12px no-repeat;
+	width: 196px;
+}
+
+#dropdown #collapsed
+{
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	box-shadow: 0 0px 2px rgba(0, 0, 0, 0.45);
+}
+
+body.kindle #dropdown #collapsed
+{
+	border: 1px solid rgb(227, 223, 201);
+	background-color: #fff;
+}
+
+#dropdown .submenu
+{
+	position: absolute;
+	display: none;
+	z-index: 100;
+	top: -12px;
+	left: -20px;
+	padding: 31px 0 5px;
+	margin-left: 10px;
+	background: #fff;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+	width: 206px;
+}
+
+body.kindle #dropdown .submenu
+{
+	border: 1px solid rgb(227, 223, 201);
+}
+
+#dropdown .submenu ul
+{
+	list-style: none;
+	margin: 0px;
+	padding: 5px 0 0 0px;
+	border-top: 1px solid rgb(227, 223, 201);
+}
+
+#dropdown li a
+{
+	font-weight: bold;
+	padding: 5px 10px;
+	border-top: 1px solid rgb(255, 255, 255);
+	border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+#dropdown li a:hover
+{
+	background-image: url("data:image/jpeg;base64,%2F9j%2F4AAQSkZJRgABAQEASABIAAD%2F2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD%2F2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD%2FwAARCABAAAEDAREAAhEBAxEB%2F8QAFgABAQEAAAAAAAAAAAAAAAAAAwAI%2F8QAHBABAAEEAwAAAAAAAAAAAAAAABICAwQRFFSS%2F8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECBP%2FEABURAQEAAAAAAAAAAAAAAAAAAAAR%2F9oADAMBAAIRAxEAPwDREXI2TSoWLQWKoTShGhADn4PYte6SD%2F%2FZ");
+	background-repeat: repeat-x;
+	border-top: 1px solid rgb(227, 223, 201);
+	border-bottom: 1px solid rgb(227, 223, 201);
+}
+

@@ -1,13 +1,11 @@
 <?php
 /**
- * latest.php
+ * template_latest.php
  * 
  * (c)2013 mrdragonraaar.com
  */
-if (basename($_SERVER['PHP_SELF']) == 'latest.php')
+if (basename($_SERVER['PHP_SELF']) == 'template_latest.php')
 	die('You cannot load this page directly.');
-
-$latest_books = $this->latest_books();
 ?>
 <div id="latest">
 <h1><?php echo LATEST_TITLE; ?></h1>
@@ -20,11 +18,12 @@ $latest_books = $this->latest_books();
 <div class="items">
 <?php
 $book_count = 0;
-foreach ($latest_books as $file => $mtime)
+foreach (array_keys(latest_books(LATEST_MAX_BOOKS)) as $file)
 {
-	$mobi = new mobipocket();
-	if ($mobi->load($file))
+	if ($fh = fopen($file, "r"))
 	{
+		$mobi = new mobipocket();
+		$mobi->read($fh);
 		$uri = books_path2uri($file);
 
 		if ($book_count % LATEST_MAX_SHOW == 0)
@@ -43,6 +42,7 @@ foreach ($latest_books as $file => $mtime)
 ?>
 <a title="<?php echo $mobi->title(); ?> by <?php echo $mobi->author(); ?>" href="<?php echo $uri; ?>"><img src="data:image/jpg;base64,<?php echo base64_encode($mobi->cover()); ?>"/></a>
 <?php
+		fclose($fh);
 	}
 
 	$book_count++;
@@ -58,10 +58,3 @@ foreach ($latest_books as $file => $mtime)
 <a class="next browse right"></a>
 
 </div>
-<script>
-$(function()
-{
-	// initialize scrollable
-	$('.scrollable').scrollable();
-});
-</script>
