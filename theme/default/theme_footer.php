@@ -25,5 +25,3 @@
 </div>
 <!-- END Footer -->
 
-</body>
-</html>
