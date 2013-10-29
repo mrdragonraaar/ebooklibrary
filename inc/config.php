@@ -43,6 +43,9 @@ if (!defined('PLUGINS_ROOT'))
 if (!defined('PLUGINS_URI'))
 	define('PLUGINS_URI', SITE_URI . 'plugins/');
 
+if (!defined('DATA_ROOT'))
+	define('DATA_ROOT', SITE_ROOT . 'data/');
+
 define('BOOKS_DIR', 'books');
 if (!defined('BOOKS_URI'))
 	define('BOOKS_URI', SITE_URI . trim(BOOKS_DIR, '/') . '/');
