@@ -28,8 +28,6 @@ function return_links()
 	return ob_get_clean();
 }
 
-// register icons css
-register_plugin_css('links', 'css/css-social-icons.php');
 // register css
 register_plugin_css('links', 'css/links.css');
 
