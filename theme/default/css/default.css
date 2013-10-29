@@ -487,7 +487,12 @@ body.kindle #links_page
 {
 	height: 32px;
 	line-height: 32px;
-	padding-left: 36px;
+}
+
+#links_page img.link_icon
+{
+	margin-right: 4px;
+	vertical-align: middle;
 }
 
 #links_page .link_entry
