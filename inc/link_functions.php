@@ -20,6 +20,7 @@ load_links();
 function load_links()
 {
 	global $LINKS;
+	if (!isset($LINKS)) $LINKS = new Links();
 
 	$LINKS->load();
 }
