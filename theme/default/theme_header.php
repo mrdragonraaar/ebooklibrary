@@ -42,7 +42,7 @@ require_once(__DIR__ . '/config.php');
 <!-- END Header -->
 
 <!-- Books / MOBIPocket -->
-<?php if (isset($mobipocket)) { ?>
+<?php if (is_mod_mobipocket()) { ?>
 <div id="mobipocket">
 <?php } else { ?>
 <div id="books">
@@ -61,7 +61,7 @@ require_once(__DIR__ . '/config.php');
 <!-- END Alphabet Links -->
 
 <!-- Directory Heading -->
-<?php if (!is_books_uri() && is_books_sub_uri() && !isset($mobipocket)) { ?>
+<?php if (!is_books_uri() && is_books_sub_uri() && !is_mod_mobipocket()) { ?>
 <h1 class="ebooklibrary_title">
 <a title="<?php echo basename(current_uri()); ?>" href="<?php echo current_uri(); ?>"><?php echo basename(current_uri()); ?></a>
 <?php if (search_pattern()) { ?>

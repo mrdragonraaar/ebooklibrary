@@ -107,7 +107,17 @@ function books_path2uri($path)
 }
 
 /**
+ * Check whether mod_mobipocket exists.
+ * @return true if mod_mobipocket exists
+ */
+function is_mod_mobipocket()
+{
+	return get_mod_mobipocket() ? true : false;
+}
+
+/**
  * Get mobipocket object from mod_mobipocket.
+ * @return MobiPocket
  */
 function get_mod_mobipocket()
 {
