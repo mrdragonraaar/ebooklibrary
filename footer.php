@@ -8,9 +8,7 @@ require_once(__DIR__ . '/inc/functions.php');
 ?>
 
 <!-- ReadMe -->
-<div id="readme">
-<?php readme(); ?>
-</div>
+<?php if (function_exists('readme')) readme(); ?>
 <!-- END ReadMe -->
 
 <?php

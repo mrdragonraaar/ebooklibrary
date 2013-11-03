@@ -13,9 +13,6 @@ define('SITE_TITLE', 'ebooklibrary');
 // theme name
 define('THEME_NAME', 'default');
 
-// readme
-define('README_NAME', 'ReadMe');
-
 // icons
 define('ICON_SITE', '/global/icons/fugue-icons/icons/e-book-reader-black.png');
 define('ICON_SEARCH', '/global/icons/fugue-icons/icons/magnifier.png');

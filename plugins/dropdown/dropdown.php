@@ -7,7 +7,7 @@
 if (basename($_SERVER['PHP_SELF']) == 'dropdown.php')
 	die('You cannot load this page directly.');
 
-// width of dropdown kabel
+// width of dropdown label
 define('DROPDOWN_LABEL_WIDTH', 24);
 
 /**

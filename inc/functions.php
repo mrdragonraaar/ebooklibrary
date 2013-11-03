@@ -40,26 +40,4 @@ function return_page_title()
 	return $page_title;
 }
 
-/**
- * Display readme file.
- */
-function readme()
-{
-	if (is_books_sub_uri())
-	{
-		$path = books_uri2path(current_uri());
-		$readme_html = $path . README_NAME . '.html';
-		$readme_txt = $path . README_NAME . '.txt';
-
-		if (is_file($readme_html))
-			include_once($readme_html);
-		else if (is_file($readme_txt))
-		{
-			echo '<pre>';
-			include_once($readme_txt);
-			echo '</pre>';
-		}
-	}
-}
-
 ?>
