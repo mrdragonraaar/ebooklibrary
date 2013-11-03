@@ -7,6 +7,8 @@
 if (basename($_SERVER['PHP_SELF']) == 'plugin_functions.php')
 	die('You cannot load this page directly.');
 
+require_once(__DIR__ . '/config.php');
+
 // plugin css filenames
 $PLUGINS_CSS = array();
 // plugin javascript filenames

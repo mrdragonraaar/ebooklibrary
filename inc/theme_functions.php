@@ -7,22 +7,22 @@
 if (basename($_SERVER['PHP_SELF']) == 'theme_functions.php')
 	die('You cannot load this page directly.');
 
+require_once(__DIR__ . '/config.php');
+
 /**
  * Display theme header.
- * @param $mobipocket mobipocket book
  */
-function theme_header($mobipocket)
+function theme_header()
 {
-	theme_file('theme_header.php', $mobipocket);
+	theme_file('theme_header.php');
 }
 
 /**
  * Display theme footer.
- * @param $mobipocket mobipocket book
  */
-function theme_footer($mobipocket)
+function theme_footer()
 {
-	theme_file('theme_footer.php', $mobipocket);
+	theme_file('theme_footer.php');
 }
 
 /**
@@ -30,22 +30,37 @@ function theme_footer($mobipocket)
  */
 function theme_front()
 {
-	theme_file('theme_front.php', null);
+	theme_file('theme_front.php');
 }
 
 /**
  * Display theme file.
  * @param $filename theme file
- * @param $mobipocket mobipocket book
  */
-function theme_file($filename, $mobipocket)
+function theme_file($filename)
 {
 	if (defined('THEME_ROOT'))
 	{
 		$theme_file = THEME_ROOT . $filename;
 		if (file_exists($theme_file))
+		{
+			$mobipocket = get_mod_mobipocket();
+
 			include_once($theme_file);
+		}
 	}
+}
+
+/**
+ * Get mobipocket object from mod_mobipocket.
+ */
+function get_mod_mobipocket()
+{
+	global $mod_mobipocket;
+	if (isset($mod_mobipocket))
+		return $mod_mobipocket->mobipocket;
+
+	return null;
 }
 
 /**

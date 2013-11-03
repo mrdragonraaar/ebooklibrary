@@ -24,5 +24,5 @@ require_once(__DIR__ . '/inc/functions.php');
 
 <body<?php if (is_kindle()) { ?> class="kindle"<?php } ?>>
 <?php if (!is_site_uri()) { ?>
-<?php theme_header(isset($mobipocket) ? $mobipocket : null); ?>
+<?php theme_header(); ?>
 <?php } ?>
