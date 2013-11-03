@@ -12,19 +12,17 @@ define('DROPDOWN_LABEL_WIDTH', 24);
 
 /**
  * Display dropdown menu plugin.
- * @param $mobipocket mobipocket book
  */
-function dropdown($mobipocket)
+function dropdown()
 {
-	echo return_dropdown($mobipocket);
+	echo return_dropdown();
 }
 
 /**
  * Get dropdown menu plugin.
- * @param $mobipocket mobipocket book
  * @return dropdown menu plugin
  */
-function return_dropdown($mobipocket)
+function return_dropdown()
 {
 	$DROPDOWN_TEMPLATE = 'template_dropdown.php';
 

@@ -17,7 +17,7 @@ require_once(__DIR__ . '/config.php');
 <!-- END Logo -->
 
 <!-- Dropdown Menu -->
-<?php if (function_exists('dropdown')) dropdown(isset($mobipocket) ? $mobipocket : null); ?>
+<?php if (function_exists('dropdown')) dropdown(); ?>
 <!-- END Dropdown Menu -->
 
 <!-- Search Box -->

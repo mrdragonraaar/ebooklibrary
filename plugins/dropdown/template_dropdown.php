@@ -6,6 +6,8 @@
  */
 if (basename($_SERVER['PHP_SELF']) == 'template_dropdown.php')
 	die('You cannot load this page directly.');
+
+$mobipocket = get_mod_mobipocket();
 ?>
 <div id="dropdown">
 <!-- Base Menu -->
