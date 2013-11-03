@@ -8,9 +8,11 @@ if (basename($_SERVER['PHP_SELF']) == 'theme_functions.php')
 	die('You cannot load this page directly.');
 
 require_once(__DIR__ . '/config.php');
+require_once(__DIR__ . '/site_functions.php');
 
 /**
  * Display theme header.
+ * @param $mobipocket mobipocket book
  */
 function theme_header()
 {
@@ -19,6 +21,7 @@ function theme_header()
 
 /**
  * Display theme footer.
+ * @param $mobipocket mobipocket book
  */
 function theme_footer()
 {
@@ -49,18 +52,6 @@ function theme_file($filename)
 			include_once($theme_file);
 		}
 	}
-}
-
-/**
- * Get mobipocket object from mod_mobipocket.
- */
-function get_mod_mobipocket()
-{
-	global $mod_mobipocket;
-	if (isset($mod_mobipocket))
-		return $mod_mobipocket->mobipocket;
-
-	return null;
 }
 
 /**
