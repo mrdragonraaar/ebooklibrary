@@ -129,6 +129,50 @@ function get_mod_mobipocket()
 }
 
 /**
+ * Display page title.
+ */
+function page_title()
+{
+	echo return_page_title();
+}
+
+/**
+ * Get page title.
+ * @return page title.
+ */
+function return_page_title()
+{
+	if (is_site_uri())
+		return SITE_TITLE;
+
+	return SITE_TITLE . ' | ' . return_page_sub_title();
+}
+
+/**
+ * Display page sub-title.
+ */
+function page_sub_title()
+{
+	echo return_page_sub_title();
+}
+
+/**
+ * Get page sub-title.
+ * @return page sub-title.
+ */
+function return_page_sub_title()
+{
+	$mobipocket = get_mod_mobipocket();
+	if (isset($mobipocket))
+		return $mobipocket->title();
+
+	if (defined('PAGE_TITLE') && PAGE_TITLE)
+		return PAGE_TITLE;
+
+	return basename(current_uri());
+}
+
+/**
  * Get directory index search pattern.
  * @return search pattern
  */

@@ -32,6 +32,15 @@ function return_dropdown()
 }
 
 /**
+ * Get shortened label text for base menu.
+ * @return shortened label text
+ */
+function dropdown_basemenu_label()
+{
+	return dropdown_label(return_page_sub_title());
+}
+
+/**
  * Get shortened label text for dropdown menu.
  * @param $text text to shorten
  * @return shortened label text
@@ -41,6 +50,21 @@ function dropdown_label($text)
 	return strlen($text) > DROPDOWN_LABEL_WIDTH ?
 	   substr($text, 0, DROPDOWN_LABEL_WIDTH) . '...' :
 	   $text;
+}
+
+/**
+ * Get icon for base menu.
+ * @return base menu icon
+ */
+function dropdown_basemenu_icon()
+{
+	if (is_mod_mobipocket())
+		return ICON_MOBI;
+
+	if (defined('ICON_PAGE') && ICON_PAGE)
+		return ICON_PAGE;
+
+	return ICON_DIR_OPEN;
 }
 
 // register css

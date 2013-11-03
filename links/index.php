@@ -4,6 +4,7 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
+define('PAGE_TITLE', 'Book Links');
 define('ICON_PAGE', '/global/icons/fugue-icons/icons/chain.png');
 include_once(__DIR__ . '/../header.php');
 ?>

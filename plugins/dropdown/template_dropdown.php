@@ -6,16 +6,10 @@
  */
 if (basename($_SERVER['PHP_SELF']) == 'template_dropdown.php')
 	die('You cannot load this page directly.');
-
-$mobipocket = get_mod_mobipocket();
 ?>
 <div id="dropdown">
 <!-- Base Menu -->
-<?php if (isset($mobipocket)) { ?>
-<a title="<?php echo $mobipocket->title(); ?>" id="collapsed" class="basemenu"><img src="<?php echo ICON_MOBI; ?>"/><?php echo dropdown_label($mobipocket->title()); ?></a>
-<?php } else { ?>
-<a title="<?php echo basename(current_uri()); ?>" id="collapsed" class="basemenu"><img src="<?php echo defined('ICON_PAGE') ? ICON_PAGE : ICON_DIR_OPEN; ?>"/><?php echo dropdown_label(basename(current_uri())); ?></a>
-<?php } ?>
+<a title="<?php page_sub_title(); ?>" id="collapsed" class="basemenu"><img src="<?php echo dropdown_basemenu_icon(); ?>"/><?php echo dropdown_basemenu_label(); ?></a>
 <!-- END Base Menu -->
 <?php
 $path = rtrim(dirname(current_uri()), '/') . '/';
