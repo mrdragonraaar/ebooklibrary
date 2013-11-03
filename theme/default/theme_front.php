@@ -4,6 +4,9 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
+if (basename($_SERVER['PHP_SELF']) == 'theme_front.php')
+	die('You cannot load this page directly.');
+
 require_once(__DIR__ . '/config.php');
 ?>
 <!-- Front Page -->

@@ -4,6 +4,8 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
+if (basename($_SERVER['PHP_SELF']) == 'theme_footer.php')
+	die('You cannot load this page directly.');
 ?>
 </div>
 <!-- END Books / MOBIPocket -->
