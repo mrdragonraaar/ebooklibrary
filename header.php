@@ -9,7 +9,7 @@ require_once(__DIR__ . '/inc/functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo SITE_TITLE; ?><?php if (!is_site_uri()) { ?> | <?php echo isset($mobipocket) ? $mobipocket->title() : basename(current_uri()); ?><?php } ?></title>
+<title><?php page_title(); ?></title>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta charset="utf-8">
