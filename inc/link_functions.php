@@ -9,7 +9,8 @@ if (basename($_SERVER['PHP_SELF']) == 'link_functions.php')
 
 require_once(__DIR__ . '/lib/Links.php');
 
-$LINKS = new Links();
+// links
+$GLOBALS['_EBOOKLIBRARY']['LINKS'] = new Links();
 
 // load links
 load_links();
@@ -19,20 +20,23 @@ load_links();
  */
 function load_links()
 {
-	global $LINKS;
-	if (!isset($LINKS)) $LINKS = new Links();
+	$LINKS = &get_config_param('LINKS');
 
-	$LINKS->load();
+	if (isset($LINKS))
+		$LINKS->load();
 }
 
 /**
- * Load links.
+ * Save links.
  */
 function save_links()
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->save();
+	if (isset($LINKS))
+		return $LINKS->save();
+
+	return false;
 }
 
 /**
@@ -41,9 +45,12 @@ function save_links()
  */
 function get_links()
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->links();
+	if (isset($LINKS))
+		return $LINKS->links();
+
+	return array();
 }
 
 /**
@@ -53,9 +60,12 @@ function get_links()
  */
 function get_link($id)
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->link($id);
+	if (isset($LINKS))
+		return $LINKS->link($id);
+
+	return null;
 }
 
 /**
@@ -65,9 +75,12 @@ function get_link($id)
  */
 function get_link_by_title($title)
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->link_by_title($title);
+	if (isset($LINKS))
+		return $LINKS->link_by_title($title);
+
+	return null;
 }
 
 /**
@@ -77,9 +90,12 @@ function get_link_by_title($title)
  */
 function add_link(Link $link)
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->add_link($link);
+	if (isset($LINKS))
+		return $LINKS->add_link($link);
+
+	return null;
 }
 
 /**
@@ -90,9 +106,12 @@ function add_link(Link $link)
  */
 function set_link($id, Link $link)
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	return $LINKS->set_link($id, $link);
+	if (isset($LINKS))
+		return $LINKS->set_link($id, $link);
+
+	return null;
 }
 
 /**
@@ -101,9 +120,10 @@ function set_link($id, Link $link)
  */
 function remove_link($id)
 {
-	global $LINKS;
+	$LINKS = &get_config_param('LINKS');
 
-	$LINKS->remove_link($id);
+	if (isset($LINKS))
+		$LINKS->remove_link($id);
 }
 
 /**

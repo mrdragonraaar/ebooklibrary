@@ -12,7 +12,7 @@ require_once(__DIR__ . '/config.php');
 <!-- Front Page -->
 <div id="front">
 <!-- Login -->
-<a id="login" title="<?php echo SITE_TITLE; ?>" href="<?php echo BOOKS_URI; ?>"><img id="kindle" src="<?php echo THEME_KINDLE_IMG; ?>"/><img id="logo" src="<?php echo THEME_LOGO; ?>"/></a>
+<a id="login" title="<?php echo site_title(); ?>" href="<?php echo books_uri(); ?>"><img id="kindle" src="<?php echo theme_kindle_img(); ?>"/><img id="logo" src="<?php echo theme_logo(); ?>"/></a>
 <!-- END Login -->
 
 <!-- Links -->

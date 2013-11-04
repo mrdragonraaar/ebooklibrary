@@ -15,11 +15,11 @@ if (basename($_SERVER['PHP_SELF']) == 'theme_footer.php')
 <div id="footer_content">
 <!-- Footer Links -->
 <span class="footer_links">
-<a href="<?php echo BOOKS_URI; ?>">books</a>
+<a href="<?php echo books_uri(); ?>">books</a>
 <span class="footer_link_sep">|</span>
-<a href="<?php echo SITE_URI; ?>magazines/">magazines</a>
+<a href="<?php echo site_uri(); ?>magazines/">magazines</a>
 <span class="footer_link_sep">|</span>
-<a href="<?php echo SITE_URI; ?>links/">links</a>
+<a href="<?php echo site_uri(); ?>links/">links</a>
 </span>
 <!-- END Footer Links -->
 <span class="copyright">&copy; 2013 mrdragonraaar.com</span>

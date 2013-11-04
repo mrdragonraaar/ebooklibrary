@@ -8,54 +8,49 @@ if (basename($_SERVER['PHP_SELF']) == 'config.php')
 	die('You cannot load this page directly.');
 
 // site title
-define('SITE_TITLE', 'ebooklibrary');
+$GLOBALS['_EBOOKLIBRARY']['SITE_TITLE'] = 'ebooklibrary';
 
 // theme name
-define('THEME_NAME', 'default');
+$GLOBALS['_EBOOKLIBRARY']['THEME_NAME'] = 'default';
 
 // icons
-define('ICON_SITE', '/global/icons/fugue-icons/icons/e-book-reader-black.png');
-define('ICON_SEARCH', '/global/icons/fugue-icons/icons/magnifier.png');
-define('ICON_DIR_OPEN', '/global/icons/fugue-icons/icons/folder-horizontal-open.png');
-define('ICON_DIR_CLOSED', '/global/icons/fugue-icons/icons/folder-horizontal.png');
-define('ICON_MOBI', '/global/icons/fugue-icons/icons/document-mobi.png');
+$GLOBALS['_EBOOKLIBRARY']['ICONS']['SITE'] = '/global/icons/fugue-icons/icons/e-book-reader-black.png';
+$GLOBALS['_EBOOKLIBRARY']['ICONS']['SEARCH'] = '/global/icons/fugue-icons/icons/magnifier.png';
+$GLOBALS['_EBOOKLIBRARY']['ICONS']['DIR_OPEN'] = '/global/icons/fugue-icons/icons/folder-horizontal-open.png';
+$GLOBALS['_EBOOKLIBRARY']['ICONS']['DIR_CLOSED'] = '/global/icons/fugue-icons/icons/folder-horizontal.png';
+$GLOBALS['_EBOOKLIBRARY']['ICONS']['MOBI'] = '/global/icons/fugue-icons/icons/document-mobi.png';
 
 
 
-if (!defined('SITE_ROOT'))
-	define('SITE_ROOT', dirname(__DIR__) . '/');
-if (!defined('SITE_URI'))
-	define('SITE_URI', substr(SITE_ROOT, strlen($_SERVER['DOCUMENT_ROOT'])));
 
-if (!defined('INC_PATH'))
-	define('INC_PATH', SITE_ROOT . 'inc/');
+/*************************************************************************************************/
 
-if (!defined('THEME_ROOT'))
-	define('THEME_ROOT', SITE_ROOT . 'theme/' . THEME_NAME . '/');
-if (!defined('THEME_URI'))
-	define('THEME_URI', SITE_URI . 'theme/' . THEME_NAME . '/');
+$GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'] = dirname(__DIR__) . '/';
+$GLOBALS['_EBOOKLIBRARY']['SITE_URI'] = substr($GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'], strlen($_SERVER['DOCUMENT_ROOT']));
 
-if (!defined('PLUGINS_ROOT'))
-	define('PLUGINS_ROOT', SITE_ROOT . 'plugins/');
-if (!defined('PLUGINS_URI'))
-	define('PLUGINS_URI', SITE_URI . 'plugins/');
+$GLOBALS['_EBOOKLIBRARY']['INC_PATH'] = $GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'] . 'inc/';
 
-if (!defined('DATA_ROOT'))
-	define('DATA_ROOT', SITE_ROOT . 'data/');
+$GLOBALS['_EBOOKLIBRARY']['THEME_ROOT'] = $GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'] . 'theme/' . $GLOBALS['_EBOOKLIBRARY']['THEME_NAME'] . '/';
+$GLOBALS['_EBOOKLIBRARY']['THEME_URI'] = $GLOBALS['_EBOOKLIBRARY']['SITE_URI'] . 'theme/' . $GLOBALS['_EBOOKLIBRARY']['THEME_NAME'] . '/';
 
-define('BOOKS_DIR', 'books');
-if (!defined('BOOKS_URI'))
-	define('BOOKS_URI', SITE_URI . trim(BOOKS_DIR, '/') . '/');
-if (!defined('BOOKS_ROOT'))
-	define('BOOKS_ROOT', books_root());
+$GLOBALS['_EBOOKLIBRARY']['PLUGINS_ROOT'] = $GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'] . 'plugins/';
+$GLOBALS['_EBOOKLIBRARY']['PLUGINS_URI'] = $GLOBALS['_EBOOKLIBRARY']['SITE_URI'] . 'plugins/';
+
+$GLOBALS['_EBOOKLIBRARY']['DATA_ROOT'] = $GLOBALS['_EBOOKLIBRARY']['SITE_ROOT'] . 'data/';
+
+$GLOBALS['_EBOOKLIBRARY']['BOOKS_DIR'] = 'books';
+$GLOBALS['_EBOOKLIBRARY']['BOOKS_URI'] = $GLOBALS['_EBOOKLIBRARY']['SITE_URI'] . trim($GLOBALS['_EBOOKLIBRARY']['BOOKS_DIR'], '/') . '/';
+$GLOBALS['_EBOOKLIBRARY']['BOOKS_ROOT'] = _init_books_root();
 
 /**
  * Get the books root path.
  * @return books root
  */
-function books_root()
+function _init_books_root()
 {
-	if (strpos($_SERVER['REQUEST_URI'], BOOKS_URI) !== 0)
+	global $_EBOOKLIBRARY;
+
+	if (strpos($_SERVER['REQUEST_URI'], $_EBOOKLIBRARY['BOOKS_URI']) !== 0)
 		return null;
 
 	$r = apache_lookup_uri($_SERVER['REQUEST_URI']);
@@ -67,10 +62,22 @@ function books_root()
 	$books_root = array_diff($path, $uri);
 	$books_root = '/' . implode('/', $books_root) . '/';
 
-	if ($books_uri !== BOOKS_URI)
-		$books_root .= BOOKS_DIR . '/';
+	if ($books_uri !== $_EBOOKLIBRARY['BOOKS_URI'])
+		$books_root .= $_EBOOKLIBRARY['BOOKS_DIR'] . '/';
 
 	return $books_root;
+}
+
+/**
+ * Get param from config.
+ * @param $param param
+ * @return param value
+ */
+function &get_config_param($param)
+{
+	global $_EBOOKLIBRARY;
+
+	return $_EBOOKLIBRARY[$param];
 }
 
 ?>

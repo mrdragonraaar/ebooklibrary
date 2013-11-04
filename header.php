@@ -13,7 +13,7 @@ require_once(__DIR__ . '/inc/functions.php');
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta charset="utf-8">
-<link rel="shortcut icon" href="<?php echo ICON_SITE; ?>" />
+<link rel="shortcut icon" href="<?php echo icon_site(); ?>" />
 <?php plugins_css(); ?>
 <?php theme_css(); ?>
 <script type="text/javascript" src="/global/js/jquery/jquery.min.js"></script>

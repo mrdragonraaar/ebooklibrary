@@ -4,8 +4,11 @@
  * 
  * (c)2013 mrdragonraaar.com
  */
-define('PAGE_TITLE', 'Book Links');
-define('ICON_PAGE', '/global/icons/fugue-icons/icons/chain.png');
+require_once(__DIR__ . '/../inc/functions.php');
+
+set_page_title('Book Links');
+set_page_icon('/global/icons/fugue-icons/icons/chain.png');
+
 include_once(__DIR__ . '/../header.php');
 ?>
 <!-- Links Page -->

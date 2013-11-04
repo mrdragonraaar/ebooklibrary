@@ -11,9 +11,6 @@ require_once(__DIR__ . '/inc/functions.php');
 <?php if (function_exists('readme')) readme(); ?>
 <!-- END ReadMe -->
 
-<?php
-
-if (!is_site_uri()) theme_footer();
-?>
+<?php if (!is_site_uri()) theme_footer(); ?>
 </body>
 </html>

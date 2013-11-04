@@ -10,7 +10,7 @@ if (basename($_SERVER['PHP_SELF']) == 'Links.php')
 require_once(__DIR__ . '/../config.php');
 require_once(__DIR__ . '/SimpleXMLExtended.php');
 
-define('LINKS_DATA', DATA_ROOT . 'links.xml');
+$GLOBALS['_EBOOKLIBRARY']['LINKS_DATA'] = $GLOBALS['_EBOOKLIBRARY']['DATA_ROOT'] . 'links.xml';
 
 /**
  * Links
@@ -105,12 +105,14 @@ class Links
  	 */
 	public function load()
 	{
-		if (!is_file(LINKS_DATA))
+		$LINKS_DATA = get_config_param('LINKS_DATA');
+
+		if (!is_file($LINKS_DATA))
 			return null;
 
 		$this->_init();
 
-		$xml = file_get_contents(LINKS_DATA);
+		$xml = file_get_contents($LINKS_DATA);
 	
 		$xml_links = simplexml_load_string($xml, 'SimpleXMLExtended');
 		foreach ($xml_links->children() as $xml_link)
@@ -139,6 +141,8 @@ class Links
  	 */
 	public function save()
 	{
+		$LINKS_DATA = get_config_param('LINKS_DATA');
+
 		$data = new SimpleXMLExtended('<?xml version="1.0" encoding="UTF-8"?><links></links>');
 
 		foreach ($this->links as $id => $link)
@@ -149,7 +153,7 @@ class Links
 			$link->to_xml_element($xml_link);
 		}
 
-		return $data->asXML(LINKS_DATA);
+		return $data->asXML($LINKS_DATA);
 	}
 }
 

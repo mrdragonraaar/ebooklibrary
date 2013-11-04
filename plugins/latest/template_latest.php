@@ -8,7 +8,7 @@ if (basename($_SERVER['PHP_SELF']) == 'template_latest.php')
 	die('You cannot load this page directly.');
 ?>
 <div id="latest">
-<h1><?php echo LATEST_TITLE; ?></h1>
+<h1><?php echo latest_title(); ?></h1>
 
 <a class="prev browse left"></a>
 
@@ -18,7 +18,7 @@ if (basename($_SERVER['PHP_SELF']) == 'template_latest.php')
 <div class="items">
 <?php
 $book_count = 0;
-foreach (array_keys(latest_books(LATEST_MAX_BOOKS)) as $file)
+foreach (array_keys(latest_books(latest_max_books())) as $file)
 {
 	if ($fh = fopen($file, "r"))
 	{
@@ -26,7 +26,7 @@ foreach (array_keys(latest_books(LATEST_MAX_BOOKS)) as $file)
 		$mobi->read($fh);
 		$uri = books_path2uri($file);
 
-		if ($book_count % LATEST_MAX_SHOW == 0)
+		if ($book_count % latest_max_show() == 0)
 		{
 			if ($book_count != 0)
 			{
@@ -40,7 +40,7 @@ foreach (array_keys(latest_books(LATEST_MAX_BOOKS)) as $file)
 <?
 		}
 ?>
-<a title="<?php echo $mobi->title(); ?> by <?php echo $mobi->author(); ?>" href="<?php echo $uri; ?>"><img src="data:image/jpg;base64,<?php echo base64_encode($mobi->cover()); ?>"/></a>
+<a title="<?php echo $mobi->title(); ?> by <?php echo $mobi->author(); ?>" href="<?php echo $uri; ?>"><img class="reflect" src="data:image/jpg;base64,<?php echo base64_encode($mobi->cover()); ?>"/></a>
 <?php
 		fclose($fh);
 	}

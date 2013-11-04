@@ -10,6 +10,36 @@ if (basename($_SERVER['PHP_SELF']) == 'theme_functions.php')
 require_once(__DIR__ . '/config.php');
 require_once(__DIR__ . '/site_functions.php');
 
+// theme config
+$GLOBALS['_EBOOKLIBRARY']['THEME_CONFIG'] = array();
+
+/**
+ * Get the theme name.
+ * @return theme name
+ */
+function theme_name()
+{
+	return get_config_param('THEME_NAME');
+}
+
+/**
+ * Get the theme uri.
+ * @return theme uri
+ */
+function theme_uri()
+{
+	return get_config_param('THEME_URI');
+}
+
+/**
+ * Get the theme root.
+ * @return theme root
+ */
+function theme_root()
+{
+	return get_config_param('THEME_ROOT');
+}
+
 /**
  * Display theme header.
  * @param $mobipocket mobipocket book
@@ -42,16 +72,41 @@ function theme_front()
  */
 function theme_file($filename)
 {
-	if (defined('THEME_ROOT'))
+	$theme_file = theme_root() . $filename;
+	if (file_exists($theme_file))
 	{
-		$theme_file = THEME_ROOT . $filename;
-		if (file_exists($theme_file))
-		{
-			$mobipocket = get_mod_mobipocket();
+		$mobipocket = get_mod_mobipocket();
 
-			include_once($theme_file);
-		}
+		include_once($theme_file);
 	}
+}
+
+/**
+ * Get param from theme config.
+ * @param $param theme config param
+ * @return theme config value
+ */
+function get_theme_config($param)
+{
+	$THEME_CONFIG = get_config_param('THEME_CONFIG');
+
+	if (isset($THEME_CONFIG[$param]))
+		return $THEME_CONFIG[$param];
+
+	return null;
+}
+
+/**
+ * Set param in theme config.
+ * @param $param theme config param
+ * @param $value theme config value
+ * @return theme config value
+ */
+function set_theme_config($param, $value)
+{
+	$THEME_CONFIG = &get_config_param('THEME_CONFIG');
+
+	return $THEME_CONFIG[$param] = $value;
 }
 
 /**
@@ -60,8 +115,8 @@ function theme_file($filename)
 function theme_css()
 {
 	// default css
-	$css_path = THEME_ROOT . 'css/' . THEME_NAME . '.css';
-	$css_uri = THEME_URI . 'css/' . THEME_NAME . '.css';
+	$css_path = theme_root() . 'css/' . theme_name() . '.css';
+	$css_uri = theme_uri() . 'css/' . theme_name() . '.css';
 
 	if (is_file($css_path))
 	{
@@ -71,8 +126,8 @@ function theme_css()
 	}
 
 	// ie css
-	$css_path = THEME_ROOT . 'css/ie.css';
-	$css_uri = THEME_URI . 'css/ie.css';
+	$css_path = theme_root() . 'css/ie.css';
+	$css_uri = theme_uri() . 'css/ie.css';
 
 	if (is_file($css_path))
 	{
@@ -89,8 +144,8 @@ function theme_css()
  */
 function theme_js()
 {
-	$js_path = THEME_ROOT . 'js/' . THEME_NAME . '.js';
-	$js_uri = THEME_URI . 'js/' . THEME_NAME . '.js';
+	$js_path = theme_root() . 'js/' . theme_name() . '.js';
+	$js_uri = theme_uri() . 'js/' . theme_name() . '.js';
 
 	if (is_file($js_path))
 	{

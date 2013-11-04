@@ -8,7 +8,7 @@ if (basename($_SERVER['PHP_SELF']) == 'dropdown.php')
 	die('You cannot load this page directly.');
 
 // width of dropdown label
-define('DROPDOWN_LABEL_WIDTH', 24);
+set_plugin_config('DROPDOWN_LABEL_WIDTH', 24);
 
 /**
  * Display dropdown menu plugin.
@@ -47,9 +47,18 @@ function dropdown_basemenu_label()
  */
 function dropdown_label($text)
 {
-	return strlen($text) > DROPDOWN_LABEL_WIDTH ?
-	   substr($text, 0, DROPDOWN_LABEL_WIDTH) . '...' :
+	return strlen($text) > dropdown_label_width() ?
+	   substr($text, 0, dropdown_label_width()) . '...' :
 	   $text;
+}
+
+/**
+ * Get width of dropdown menu label text.
+ * @return label text width
+ */
+function dropdown_label_width()
+{
+	return get_plugin_config('DROPDOWN_LABEL_WIDTH');
 }
 
 /**
@@ -59,12 +68,12 @@ function dropdown_label($text)
 function dropdown_basemenu_icon()
 {
 	if (is_mod_mobipocket())
-		return ICON_MOBI;
+		return icon_mobi();
 
-	if (defined('ICON_PAGE') && ICON_PAGE)
-		return ICON_PAGE;
+	if (icon_page())
+		return icon_page();
 
-	return ICON_DIR_OPEN;
+	return icon_dir_open();
 }
 
 // register css

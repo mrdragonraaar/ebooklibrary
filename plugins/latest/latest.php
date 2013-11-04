@@ -8,11 +8,11 @@ if (basename($_SERVER['PHP_SELF']) == 'latest.php')
 	die('You cannot load this page directly.');
 
 // latest books title
-define('LATEST_TITLE', 'Latest additions');
+set_plugin_config('LATEST_TITLE', 'Latest additions');
 // maximum number of books
-define('LATEST_MAX_BOOKS', 21);
+set_plugin_config('LATEST_MAX_BOOKS', 21);
 // maximum number of books per page
-define('LATEST_MAX_SHOW', 7);
+set_plugin_config('LATEST_MAX_SHOW', 7);
 
 /**
  * Display latest books plugin.
@@ -33,6 +33,33 @@ function return_latest()
 	ob_start();
 	include($LATEST_TEMPLATE);
 	return ob_get_clean();
+}
+
+/**
+ * Get title for latest books plugin.
+ * @return latest books title
+ */
+function latest_title()
+{
+	return get_plugin_config('LATEST_TITLE');
+}
+
+/**
+ * Get maximum number of books.
+ * @return max books
+ */
+function latest_max_books()
+{
+	return get_plugin_config('LATEST_MAX_BOOKS');
+}
+
+/**
+ * Get maximum number of books per page.
+ * @return max books per page
+ */
+function latest_max_show()
+{
+	return get_plugin_config('LATEST_MAX_SHOW');
 }
 
 /**

@@ -15,7 +15,7 @@ require_once(__DIR__ . '/config.php');
 
 <!-- Logo -->
 <div id="logo">
-<a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URI; ?>"><img alt="<?php echo SITE_TITLE; ?>" src="<?php echo THEME_LOGO; ?>"></a>
+<a title="<?php echo site_title(); ?>" href="<?php echo site_uri(); ?>"><img alt="<?php echo site_title(); ?>" src="<?php echo theme_logo(); ?>"></a>
 </div>
 <!-- END Logo -->
 
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/config.php');
 <div id="searchbox">
 <form method="get">
 <input id="search" name="P" type="text" value="<?php echo search_pattern(); ?>" />
-<img src="<?php echo ICON_SEARCH; ?>" />
+<img src="<?php echo icon_search(); ?>" />
 </form>
 </div>
 <?php } ?>

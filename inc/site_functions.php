@@ -34,7 +34,34 @@ function current_uri()
  */
 function is_site_uri()
 {
-	return current_uri() === SITE_URI;
+	return current_uri() === site_uri();
+}
+
+/**
+ * Get the site uri.
+ * @return site uri
+ */
+function site_uri()
+{
+	return get_config_param('SITE_URI');
+}
+
+/**
+ * Get the site root.
+ * @return site root
+ */
+function site_root()
+{
+	return get_config_param('SITE_ROOT');
+}
+
+/**
+ * Get the books dir.
+ * @return books dir
+ */
+function books_dir()
+{
+	return get_config_param('BOOKS_DIR');
 }
 
 /**
@@ -43,7 +70,16 @@ function is_site_uri()
  */
 function is_books_uri()
 {
-	return current_uri() === BOOKS_URI;
+	return current_uri() === books_uri();
+}
+
+/**
+ * Get the books uri.
+ * @return books uri
+ */
+function books_uri()
+{
+	return get_config_param('BOOKS_URI');
 }
 
 /**
@@ -56,8 +92,8 @@ function books_sub_uri($uri)
 {
 	$uri = rawurldecode($uri);
 
-	if (substr($uri, 0, strlen(BOOKS_URI)) === BOOKS_URI)
-		return substr($uri, strlen(BOOKS_URI));
+	if (substr($uri, 0, strlen(books_uri())) === books_uri())
+		return substr($uri, strlen(books_uri()));
 
 	return '';
 }
@@ -73,6 +109,15 @@ function is_books_sub_uri()
 }
 
 /**
+ * Get the books root.
+ * @return books root
+ */
+function books_root()
+{
+	return get_config_param('BOOKS_ROOT');
+}
+
+/**
  * Get remaining path component under books path
  * of given path.
  * @param $path path
@@ -80,8 +125,8 @@ function is_books_sub_uri()
  */
 function books_sub_path($path)
 {
-	if (substr($path, 0, strlen(BOOKS_ROOT)) === BOOKS_ROOT)
-		return substr($path, strlen(BOOKS_ROOT));
+	if (substr($path, 0, strlen(books_root())) === books_root())
+		return substr($path, strlen(books_root()));
 
 	return '';
 }
@@ -93,7 +138,7 @@ function books_sub_path($path)
  */
 function books_uri2path($uri)
 {
-	return BOOKS_ROOT . books_sub_uri($uri);
+	return books_root() . books_sub_uri($uri);
 }
 
 /**
@@ -103,7 +148,7 @@ function books_uri2path($uri)
  */
 function books_path2uri($path)
 {
-	return BOOKS_URI . books_sub_path($path);
+	return books_uri() . books_sub_path($path);
 }
 
 /**
@@ -129,6 +174,15 @@ function get_mod_mobipocket()
 }
 
 /**
+ * Get the site title.
+ * @return site title
+ */
+function site_title()
+{
+	return get_config_param('SITE_TITLE');
+}
+
+/**
  * Display page title.
  */
 function page_title()
@@ -143,9 +197,9 @@ function page_title()
 function return_page_title()
 {
 	if (is_site_uri())
-		return SITE_TITLE;
+		return site_title();
 
-	return SITE_TITLE . ' | ' . return_page_sub_title();
+	return site_title() . ' | ' . return_page_sub_title();
 }
 
 /**
@@ -166,11 +220,33 @@ function return_page_sub_title()
 	if (isset($mobipocket))
 		return $mobipocket->title();
 
-	if (defined('PAGE_TITLE') && PAGE_TITLE)
-		return PAGE_TITLE;
+	if (page_title_config())
+		return page_title_config();
 
 	return basename(current_uri());
 }
+
+/**
+ * Get page title from config.
+ * @return page title.
+ */
+function page_title_config()
+{
+	return get_config_param('PAGE_TITLE');
+}
+
+/**
+ * Set page title in config.
+ * @param $page_title page title.
+ * @return page title.
+ */
+function set_page_title_config($page_title)
+{
+	global $_EBOOKLIBRARY;
+
+	return $_EBOOKLIBRARY['PAGE_TITLE'] = $page_title;
+}
+function set_page_title($page_title) { return set_page_title_config($page_title); }
 
 /**
  * Get directory index search pattern.
@@ -182,14 +258,89 @@ function search_pattern()
 }
 
 /**
+ * Get site icon.
+ * @return site icon
+ */
+function icon_site() { return icon('SITE'); }
+
+/**
+ * Get search icon.
+ * @return search icon
+ */
+function icon_search() { return icon('SEARCH'); }
+
+/**
+ * Get dir open icon.
+ * @return dir open icon
+ */
+function icon_dir_open() { return icon('DIR_OPEN'); }
+
+/**
+ * Get dir closed icon.
+ * @return dir closed icon
+ */
+function icon_dir_closed() { return icon('DIR_CLOSED'); }
+
+/**
+ * Get mobi icon.
+ * @return mobi icon
+ */
+function icon_mobi() { return icon('MOBI'); }
+
+/**
+ * Get page icon.
+ * @return page icon
+ */
+function icon_page() { return icon('PAGE'); }
+
+/**
+ * Set page icon.
+ * @param $icon_uri uri of page icon.
+ * @return page icon
+ */
+function set_icon_page($icon_uri) { return set_icon('PAGE', $icon_uri); }
+function set_page_icon($icon_uri) { return set_icon_page($icon_uri); }
+
+/**
+ * Get icon from config.
+ * @param $icon_name name of icon.
+ * @return icon
+ */
+function icon($icon_name)
+{
+	$ICONS = get_config_param('ICONS');
+
+	if (isset($ICONS[$icon_name]))
+		return $ICONS[$icon_name];
+
+	return null;
+}
+
+/**
+ * Set icon in config.
+ * @param $icon_name name of icon.
+ * @param $icon_uri uri of icon.
+ * @return icon
+ */
+function set_icon($icon_name, $icon_uri)
+{
+	$ICONS = &get_config_param('ICONS');
+
+	return $ICONS[$icon_name] = $icon_uri;
+}
+
+/**
  * Get array of books in specified directory.
  * @param $dir directory
  * @param $books array of books
  * @return new array of books
  */
-function books($dir = BOOKS_ROOT, $books = array())
+function books($dir = null, $books = array())
 {
-	if (!isset($dir) || !is_dir($dir))
+	if (!isset($dir))
+		$dir = books_root();
+
+	if (!is_dir($dir))
 		return $books;
 
 	if ($dh = opendir($dir))

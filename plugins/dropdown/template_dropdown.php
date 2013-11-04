@@ -19,15 +19,15 @@ $submenu = basename($path);
 <div class="submenu">
 <ul>
 <!-- Directory Menu Items -->
-<?php while ($path !== SITE_URI) { ?>
-<li><a title="<?php echo $submenu; ?>" href="<?php echo $path; ?>"><img src="<?php echo ICON_DIR_CLOSED; ?>"/><?php echo dropdown_label($submenu); ?></a></li>
+<?php while ($path !== site_uri()) { ?>
+<li><a title="<?php echo $submenu; ?>" href="<?php echo $path; ?>"><img src="<?php echo icon_dir_closed(); ?>"/><?php echo dropdown_label($submenu); ?></a></li>
 <?php 
 $path = rtrim(dirname($path), '/') . '/';
 $submenu = basename($path);
 } ?>
 <!-- END Directory Menu Items -->
 <!-- Site Menu Item -->
-<li><a title="<?php echo SITE_TITLE; ?>" href="<?php echo SITE_URI; ?>"><img src="<?php echo ICON_SITE; ?>"/><?php echo dropdown_label(SITE_TITLE); ?></a></li>
+<li><a title="<?php echo site_title(); ?>" href="<?php echo site_uri(); ?>"><img src="<?php echo icon_site(); ?>"/><?php echo dropdown_label(site_title()); ?></a></li>
 <!-- END Site Menu Item -->
 </ul>
 </div>
