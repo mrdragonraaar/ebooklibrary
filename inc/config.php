@@ -50,22 +50,11 @@ function _init_books_root()
 {
 	global $_EBOOKLIBRARY;
 
-	if (strpos($_SERVER['REQUEST_URI'], $_EBOOKLIBRARY['BOOKS_URI']) !== 0)
-		return null;
+	$r = apache_lookup_uri($_EBOOKLIBRARY['BOOKS_URI']);
+	if (isset($r) && $r)
+		return $r->filename;
 
-	$r = apache_lookup_uri($_SERVER['REQUEST_URI']);
-	$uri = explode('/', trim($r->uri, '/'));
-	$path = explode('/', trim($r->filename, '/'));
-
-	$books_uri = array_diff($uri, $path);
-	$books_uri = '/' . implode('/', $books_uri) . '/';
-	$books_root = array_diff($path, $uri);
-	$books_root = '/' . implode('/', $books_root) . '/';
-
-	if ($books_uri !== $_EBOOKLIBRARY['BOOKS_URI'])
-		$books_root .= $_EBOOKLIBRARY['BOOKS_DIR'] . '/';
-
-	return $books_root;
+	return null;
 }
 
 /**
